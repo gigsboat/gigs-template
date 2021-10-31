@@ -28,6 +28,6 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           push-branch: 'main'
           commit-message: 'chore: updating README with new gigs'
-          files: README-gigs.md
+          files: README.md
           name: Liran Tal
           email: liran.tal@gmail.com
