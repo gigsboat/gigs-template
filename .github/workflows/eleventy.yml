@@ -22,7 +22,7 @@ jobs:
         run: npm i -D git@github.com:estherixz/gigsboat-cli.git#feat/issue-24-11ty-static-website markdown-it markdown-it-anchor
 
       - name: Create gigs markdown
-        run: npx gigsboat/cli --eleventy
+        run: npx gigsboat/cli
       - name: Create gigs html with 11ty
         run: npx @11ty/eleventy
 
