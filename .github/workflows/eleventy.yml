@@ -1,0 +1,36 @@
+name: Create gigs w eleventy
+
+on:
+  [push, workflow_dispatch]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [16.x]
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install estherixz:gigsboat and 11ty dependencies
+        run: npm i -D git@github.com:estherixz/gigsboat-cli.git#feat/issue-24-11ty-static-website markdown-it markdown-it-anchor
+
+      - name: Create gigs markdown
+        run: npx gigsboat/cli --eleventy
+      - name: Create gigs html with 11ty
+        run: npx @11ty/eleventy
+
+      - name: Push gigs into repository README
+        uses: github-actions-x/commit@v2.8
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          push-branch: 'feat/issue-24-11ty-static-website'
+          commit-message: 'chore: updating README with new gigs and create HTML'
+          files: docs/ gigsboat-eleventy-starter/
+          name: Esther Saimpou
