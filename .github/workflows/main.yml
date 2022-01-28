@@ -19,15 +19,25 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
+
+      - name: Install 11ty dependencies
+        run: npm i markdown-it markdown-it-anchor
+
       - name: Create gigs 
         run: npx @gigsboat/cli
 
-      - name: Push gigs into repository README
+      - name: Copy file to eleventy starter directory
+        run: cp README.md gigsboat-eleventy-starter/index.md
+
+      - name: Create gigs html with 11ty
+        run: npx @11ty/eleventy
+
+      - name: Push gigs into repository
         uses: github-actions-x/commit@v2.8
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           push-branch: 'main'
-          commit-message: 'chore: updating README with new gigs'
-          files: README.md
+          commit-message: 'chore: updating README with new gigs and create HTML'
+          files: README.md docs/
           name: Liran Tal
           email: liran.tal@gmail.com
