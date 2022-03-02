@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/radomird/gigs-template.git"
+    "url": "git+https://github.com/gigsboat/gigs-template.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/radomird/gigs-template/issues"
+    "url": "https://github.com/gigsboat/gigs-template/issues"
   },
-  "homepage": "https://github.com/radomird/gigs-template#readme",
+  "homepage": "https://github.com/gigsboat/gigs-template#readme",
   "devDependencies": {
     "markdown-it-anchor": "^8.4.1",
     "markdown-it": "^12.3.2"
