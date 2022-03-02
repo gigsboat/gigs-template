@@ -29,6 +29,13 @@ jobs:
       - name: Copy file to eleventy starter directory
         run: cp README.md gigsboat-eleventy-starter/index.md
 
+      - name: Set up and copy files to jekyll directory
+        run: |
+          mkdir -p jekyll/_layouts
+          cp gigsboat-eleventy-starter/_includes/gigsboat-layout.liquid jekyll/_layouts/default.html
+          (echo "---\nlayout: default\n---\n" && cat README.md) > index.md && mv index.md jekyll/index.md
+          cp gigsboat-eleventy-starter/styles.css jekyll/styles.css
+
       - name: Create gigs html with 11ty
         run: npx @11ty/eleventy
 
