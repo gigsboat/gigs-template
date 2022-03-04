@@ -1,0 +1,26 @@
+{
+  "name": "gigs-template",
+  "version": "1.0.0",
+  "description": "Repository template for your gigs",
+  "main": ".eleventy.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gigsboat/gigs-template.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gigsboat/gigs-template/issues"
+  },
+  "homepage": "https://github.com/gigsboat/gigs-template#readme",
+  "devDependencies": {
+    "markdown-it-anchor": "^8.4.1",
+    "markdown-it": "^12.3.2"
+  }
+}
