@@ -40,7 +40,7 @@ jobs:
         run: npx @11ty/eleventy
 
       - name: Push gigs into repository
-        uses: github-actions-x/commit@v2.8
+        uses: github-actions-x/commit@v2.9
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           push-branch: 'main'
